@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Movie Gallery</title>
+        <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      margin: 50px;
+      scroll-behavior: smooth;
+    }
+    #image {
+        width: 600px;
+        height: 300px;
+        border: 2px solid #333;
+        margin: auto;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    img {
+        width: 100px;
+        margin: 10px;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: 0.3s;
+    }
+    img:hover {
+        transform: scale(1.1);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+  </style>
+    </head>
+
+    <body>
+        <h1>Movie Gallery</h1>
+        <div id="image">
+        Hover over an image below to display here.
+        </div>
+        <br>
+        <img src="interstellar.jpg" alt="Interstellar" 
+             onmouseover="upDate(this)" 
+             onmouseout="undo()">
+        <img src="peaky.jpg" alt="Peaky Blinders"
+             onmouseover="upDate(this)" 
+             onmouseout="undo()">
+        <img src="breakingbad.jpg" alt="Breaking Bad"
+             onmouseover="upDate(this)" 
+             onmouseout="undo()">
+        <script>
+            function upDate(previewPic) {
+                console.log("Hover works!");
+                console.log(previewPic.src);
+                console.log(previewPic.alt);
+
+                document.getElementById("image").innerHTML = previewPic.alt;
+                document.getElementById("image").style.backgroundImage ="url('" + previewPic.src + "')";
+        }
+
+        function undo() {
+            document.getElementById("image").innerHTML ="Hover over an image below to display here.";
+            document.getElementById("image").style.backgroundImage = "url('')";
+        }
+        </script>
+    </body>
+</html>
